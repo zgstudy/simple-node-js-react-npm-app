@@ -1,15 +1,15 @@
 pipeline {
     agent {
         docker {
-            image 'node:6-alpine' 
-            args '-p 3000:3000' 
+            image 'node:6-alpine'
+            args '-p 3000:3000'
         }
     }
     stages {
-        stage('Build') { 
+        stage('Build') {
             steps {
-                sh 'npm config set registry http://registry.npm.taobao.org'
-                sh 'npm install' 
+                sh 'yarn config set registry http://registry.npm.taobao.org'
+                sh 'yarn'
             }
         }
     }
